@@ -34,6 +34,8 @@ From the RFC:
 
 == Changelog ==
 
+= 0.3 =
+* implements the new well-known hook
 = 0.2 =
 * Initial release
 
