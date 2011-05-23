@@ -1,12 +1,12 @@
 === host-meta ===
 Contributors: Matthias Pfefferle
-Donate link:
+Donate link: http://14101978.de
 Tags: OpenID, XRD, well-known, XML, Discovery, host-meta, Webfinger
-Requires at least: 2.7
-Tested up to: 3.2.9
-Stable tag: 0.3
+Requires at least: 3.1
+Tested up to: 3.1.9
+Stable tag: 0.4
 
-This plugin provides a host-meta - file for WordPress (RFC Draft: http://tools.ietf.org/html/draft-hammer-hostmeta-05).
+This plugin provides a host-meta - file for WordPress (RFC Draft: http://tools.ietf.org/html/draft-hammer-hostmeta).
 
 The plugin requires the `/.well-known/`-plugin: http://wordpress.org/extend/plugins/well-known/!
 
@@ -34,6 +34,8 @@ From the RFC:
 
 == Changelog ==
 
+= 0.4 =
+* added jrd support
 = 0.3 =
 * implements the new well-known hook
 = 0.2 =
