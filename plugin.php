@@ -21,7 +21,7 @@ class HostMetaPlugin {
    *
    * @param array $query
    */
-  function renderHostMeta($query) {
+  public static function renderHostMeta($query) {
     if (($query["well-known"] == "host-meta") || ($query["well-known"] == "host-meta.json")) {
 	    // get accept header
 	    $accept = explode(',', $_SERVER['HTTP_ACCEPT']);
@@ -44,8 +44,7 @@ class HostMetaPlugin {
 	 * renders the host-meta file in xml
    */
   public static function renderXrd() {
-	  //header('Content-Type: application/xrd+xml; charset=' . get_option('blog_charset'), true);
-	  header('Content-Type: text/xml; charset=' . get_option('blog_charset'), true);
+	  header('Content-Type: application/xrd+xml; charset=' . get_option('blog_charset'), true);
 		$host_meta = self::generateContent();
 		
 		echo "<?xml version='1.0' encoding='".get_option('blog_charset')."'?>\n";
