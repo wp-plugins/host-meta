@@ -3,7 +3,7 @@
 Plugin Name: host-meta
 Plugin URI: http://notizblog.org/
 Description: Host Metadata for WordPress (IETF-Draft: http://tools.ietf.org/html/draft-hammer-hostmeta)
-Version: 0.4.1
+Version: 0.4.2
 Author: Matthias Pfefferle
 Author URI: http://notizblog.org/
 */
@@ -44,6 +44,7 @@ class HostMetaPlugin {
    * renders the host-meta file in xml
    */
   public static function renderXrd() {
+    header("Access-Control-Allow-Origin: *");
     header('Content-Type: application/xrd+xml; charset=' . get_option('blog_charset'), true);
     $host_meta = self::generateContent();
     
@@ -66,6 +67,7 @@ class HostMetaPlugin {
    * renders the host-meta file in json
    */
   public static function renderJrd() {
+    header("Access-Control-Allow-Origin: *");
     header('Content-Type: application/json; charset=' . get_option('blog_charset'), true);
     $host_meta = self::generateContent();
 
