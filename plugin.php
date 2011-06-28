@@ -3,7 +3,11 @@
 Plugin Name: host-meta
 Plugin URI: http://notizblog.org/
 Description: Host Metadata for WordPress (IETF-Draft: http://tools.ietf.org/html/draft-hammer-hostmeta)
+<<<<<<< .mine
+Version: 0.4.2
+=======
 Version: 0.4.1
+>>>>>>> .r402152
 Author: Matthias Pfefferle
 Author URI: http://notizblog.org/
 */
@@ -44,10 +48,18 @@ class HostMetaPlugin {
    * renders the host-meta file in xml
    */
   public static function renderXrd() {
+<<<<<<< .mine
+    header("Access-Control-Allow-Origin: *");
+	  header('Content-Type: application/xrd+xml; charset=' . get_option('blog_charset'), true);
+		$host_meta = self::generateContent();
+		
+		echo "<?xml version='1.0' encoding='".get_option('blog_charset')."'?>\n";
+=======
     header('Content-Type: application/xrd+xml; charset=' . get_option('blog_charset'), true);
     $host_meta = self::generateContent();
     
     echo "<?xml version='1.0' encoding='".get_option('blog_charset')."'?>\n";
+>>>>>>> .r402152
     echo "<XRD xmlns='http://docs.oasis-open.org/ns/xri/xrd-1.0'\n";
     echo "     xmlns:hm='http://host-meta.net/xrd/1.0'\n";
       // add xml-only namespaces
@@ -65,9 +77,16 @@ class HostMetaPlugin {
   /**
    * renders the host-meta file in json
    */
+<<<<<<< .mine
+	public static function renderJrd() {
+	  header("Access-Control-Allow-Origin: *");
+	  header('Content-Type: application/json; charset=' . get_option('blog_charset'), true);
+		$host_meta = self::generateContent();
+=======
   public static function renderJrd() {
     header('Content-Type: application/json; charset=' . get_option('blog_charset'), true);
     $host_meta = self::generateContent();
+>>>>>>> .r402152
 
     echo json_encode($host_meta);
   }

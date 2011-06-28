@@ -4,7 +4,7 @@ Donate link: http://14101978.de
 Tags: OpenID, XRD, well-known, XML, Discovery, host-meta, Webfinger
 Requires at least: 3.1
 Tested up to: 3.1.9
-Stable tag: 0.4.1
+Stable tag: 0.4.2
 
 This plugin provides a host-meta - file for WordPress (RFC Draft: http://tools.ietf.org/html/draft-hammer-hostmeta).
 
@@ -33,6 +33,8 @@ From the RFC:
    to be used by multiple Web-based protocols.
 
 == Changelog ==
+= 0.4.2 =
+* some changes to support http://unhosted.org
 = 0.4.1 =
 * fixed ostatus compatibility issue: http://status.net/open-source/issues/3235
 = 0.4 =
