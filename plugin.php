@@ -1,14 +1,15 @@
 <?php
 /*
 Plugin Name: host-meta
-Plugin URI: http://notizblog.org/
+Plugin URI: http://wordpress.org/extend/plugins/host-meta/
 Description: Host Metadata for WordPress (IETF-Draft: http://tools.ietf.org/html/draft-hammer-hostmeta)
-Version: 0.4.2
+Version: 0.4.3
 Author: Matthias Pfefferle
 Author URI: http://notizblog.org/
 */
 
-add_action('well-known', array('HostMetaPlugin', 'renderHostMeta'), 2);
+add_action('well_known_host-meta', array('HostMetaPlugin', 'renderXrd'), 2);
+add_action('well_known_host-meta.json', array('HostMetaPlugin', 'renderJrd'), 2);
 
 /**
  * the host-meta class
@@ -17,35 +18,11 @@ add_action('well-known', array('HostMetaPlugin', 'renderHostMeta'), 2);
  */
 class HostMetaPlugin {
   /**
-   * renders the host-meta file
-   *
-   * @param array $query
-   */
-  public static function renderHostMeta($query) {
-    if (($query["well-known"] == "host-meta") || ($query["well-known"] == "host-meta.json")) {
-      // get accept header
-      $accept = explode(',', $_SERVER['HTTP_ACCEPT']);
-
-      // check format-param and accept header to render the right output format     
-      if (in_array('application/json', $accept) || ($query["well-known"] == "host-meta.json")) {
-        // render json version
-        self::renderJrd();
-      } else {
-        // render xml version
-        self::renderXrd();
-      }
-      
-      // that's it
-      exit;
-    }
-  }
-
-  /**
    * renders the host-meta file in xml
    */
   public static function renderXrd() {
     header("Access-Control-Allow-Origin: *");
-    header('Content-Type: application/xrd+xml; charset=' . get_option('blog_charset'), true);
+    header("Content-Type: application/xrd+xml; charset=" . get_option('blog_charset'), true);
     $host_meta = self::generateContent();
     
     echo "<?xml version='1.0' encoding='".get_option('blog_charset')."'?>\n";
@@ -61,6 +38,7 @@ class HostMetaPlugin {
       do_action('host_meta_xrd');
     
     echo "\n</XRD>";
+    exit;
   }
   
   /**
@@ -68,10 +46,11 @@ class HostMetaPlugin {
    */
   public static function renderJrd() {
     header("Access-Control-Allow-Origin: *");
-    header('Content-Type: application/json; charset=' . get_option('blog_charset'), true);
+    header("Content-Type: application/json; charset=" . get_option('blog_charset'), true);
     $host_meta = self::generateContent();
 
     echo json_encode($host_meta);
+    exit;
   }
   
   /**
