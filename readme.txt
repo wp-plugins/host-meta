@@ -2,7 +2,7 @@
 Contributors: Matthias Pfefferle
 Donate link: http://14101978.de
 Tags: OpenID, XRD, well-known, XML, Discovery, host-meta, Webfinger
-Requires at least: 3.1
+Requires at least: 3.0.5
 Tested up to: 3.2
 Stable tag: 0.4.3
 
