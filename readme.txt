@@ -3,8 +3,8 @@ Contributors: pfefferle
 Donate link: http://14101978.de
 Tags: discovery, host-meta, xrd, jrd
 Requires at least: 3.0.5
-Tested up to: 3.5.1
-Stable tag: 1.0.4
+Tested up to: 4.3
+Stable tag: 1.1.0
 
 host-meta for WordPress!
 
@@ -36,49 +36,42 @@ From the RFC:
 
 == Changelog ==
 
-= 1.0.4 =
+= 1.1.0 =
+* removed deprecated `hm` namespace and items
+* WordPress coding standard
 
+= 1.0.4 =
 * some small bug-fixes
 
 = 1.0.3 =
-
 * better compatibility with other plugins
 
 = 1.0.2 =
-
 * bug fix
 
 = 1.0.1 =
-
 * bug fix
 
 = 1.0.0 =
-
 * refactoring
 * deprecated well-known plugin
 
 = 0.4.3 =
-
 * implemented new well-known hooks
 
 = 0.4.2 =
-
 * some changes to support http://unhosted.org
 
 = 0.4.1 =
-
 * fixed ostatus compatibility issue: http://status.net/open-source/issues/3235
 
 = 0.4 =
-
 * added jrd support
 
 = 0.3 =
-
 * implements the new well-known hook
 
 = 0.2 =
-
 * Initial release
 
 == Installation ==
